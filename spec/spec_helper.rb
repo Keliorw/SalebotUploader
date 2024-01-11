@@ -24,15 +24,15 @@ require 'rspec/retry'
 
 I18n.enforce_available_locales = false
 
-def file_path( *paths )
+def file_path(*paths)
   File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', *paths))
 end
 
-def public_path( *paths )
+def public_path(*paths)
   File.expand_path(File.join(File.dirname(__FILE__), 'public', *paths))
 end
 
-def tmp_path( *paths )
+def tmp_path(*paths)
   File.expand_path(File.join(File.dirname(__FILE__), 'tmp', *paths))
 end
 
@@ -63,7 +63,7 @@ module SalebotUploader
       alias_method :stub_merb_tempfile, :stub_tempfile
 
       def stub_stringio(filename, mime_type=nil, fake_name=nil)
-        file = IO.read( file_path( filename ) ) if filename
+        file = IO.read(file_path(filename)) if filename
         stringio = StringIO.new(file)
         allow(stringio).to receive_messages(:local_path => '',
                                             :original_filename => filename || fake_name,

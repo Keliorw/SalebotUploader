@@ -56,7 +56,7 @@ module SalebotUploader
         :basename     => lambda{|u, f| u.filename.gsub(/#{File.extname(u.filename)}$/, '') },
         :extension    => lambda{|u, d| File.extname(u.filename).gsub(/^\.+/, '')},
         :class        => lambda{|u, f| u.model.class.name.underscore.pluralize}
-      }.freeze
+      }
 
       included do
         attr_accessor :filename

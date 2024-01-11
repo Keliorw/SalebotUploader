@@ -162,7 +162,7 @@ module SalebotUploader
       end
 
       class File
-        DEFAULT_S3_REGION = 'us-east-1'.freeze
+        DEFAULT_S3_REGION = 'us-east-1'
 
         include SalebotUploader::Utilities::Uri
         include SalebotUploader::Utilities::FileName

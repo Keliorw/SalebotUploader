@@ -6,7 +6,7 @@ module SalebotUploader
       # based on Ruby < 2.0's URI.encode
       PATH_SAFE = URI::REGEXP::PATTERN::UNRESERVED + '\/'
       PATH_UNSAFE = Regexp.new("[^#{PATH_SAFE}]", false)
-      NON_ASCII = /[^[:ascii:]]/.freeze
+      NON_ASCII = /[^[:ascii:]]/
 
     private
 

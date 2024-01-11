@@ -39,6 +39,7 @@ module SalebotUploader
     #
     def original_filename
       return @original_filename if @original_filename
+
       if @file && @file.respond_to?(:original_filename)
         @file.original_filename
       elsif path
@@ -87,6 +88,7 @@ module SalebotUploader
     #
     def path
       return if @file.blank?
+
       if is_path?
         File.expand_path(@file)
       elsif @file.respond_to?(:path) && !@file.path.blank?
@@ -134,11 +136,12 @@ module SalebotUploader
           @content
         else
           length, outbuf = args
-          raise ArgumentError, "outbuf argument not supported since the content is already loaded" if outbuf
+          raise ArgumentError, 'outbuf argument not supported since the content is already loaded' if outbuf
+
           @content[0, length]
         end
       elsif is_path?
-        File.open(@file, "rb") {|file| file.read(*args)}
+        File.open(@file, 'rb') { |file| file.read(*args) }
       else
         @file.try(:rewind)
         @content = @file.read(*args)
@@ -158,6 +161,7 @@ module SalebotUploader
     #
     def move_to(new_path, permissions=nil, directory_permissions=nil, keep_filename=false)
       return if self.empty?
+
       new_path = File.expand_path(new_path)
 
       mkdir!(new_path, directory_permissions)
@@ -174,7 +178,7 @@ module SalebotUploader
       if exists?
         FileUtils.mv(path, new_path) unless File.identical?(new_path, path)
       else
-        File.open(new_path, "wb") { |f| f.write(read) }
+        File.open(new_path, 'wb') { |f| f.write(read) }
       end
     end
 
@@ -193,6 +197,7 @@ module SalebotUploader
     #
     def copy_to(new_path, permissions=nil, directory_permissions=nil)
       return if self.empty?
+
       new_path = File.expand_path(new_path)
 
       mkdir!(new_path, directory_permissions)
@@ -208,7 +213,7 @@ module SalebotUploader
       if exists?
         FileUtils.cp(path, new_path) unless new_path == path
       else
-        File.open(new_path, "wb") { |f| f.write(read) }
+        File.open(new_path, 'wb') { |f| f.write(read) }
       end
     end
 
@@ -228,7 +233,8 @@ module SalebotUploader
     #
     def to_file
       return @file if @file.is_a?(File)
-      File.open(path, "rb") if exists?
+
+      File.open(path, 'rb') if exists?
     end
 
     ##
@@ -272,9 +278,9 @@ module SalebotUploader
 
     def file=(file)
       if file.is_a?(Hash)
-        @file = file["tempfile"] || file[:tempfile]
-        @original_filename = file["filename"] || file[:filename]
-        @declared_content_type = file["content_type"] || file[:content_type] || file["type"] || file[:type]
+        @file = file['tempfile'] || file[:tempfile]
+        @original_filename = file['filename'] || file[:filename]
+        @declared_content_type = file['content_type'] || file[:content_type] || file['type'] || file[:type]
       else
         @file = file
         @original_filename = nil
@@ -296,11 +302,11 @@ module SalebotUploader
     # Sanitize the filename, to prevent hacking
     def sanitize(name)
       name = name.scrub
-      name = name.tr("\\", "/") # work-around for IE
+      name = name.tr('\\', '/') # work-around for IE
       name = File.basename(name)
-      name = name.gsub(sanitize_regexp, "_")
+      name = name.gsub(sanitize_regexp, '_')
       name = "_#{name}" if name =~ /\A\.+\z/
-      name = "unnamed" if name.size.zero?
+      name = 'unnamed' if name.size.zero?
       name.mb_chars.to_s
     end
 
