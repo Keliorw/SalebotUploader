@@ -1,0 +1,9 @@
+class <%= class_name %>Uploader < SalebotUploader::Uploader::Base
+
+  storage :file
+  # Переопределить каталог, в котором будут храниться загруженные файлы.
+  # Это разумное значение по умолчанию для загрузчиков, которые предназначены для монтирования:
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+end
