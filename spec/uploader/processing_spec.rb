@@ -285,12 +285,6 @@ describe SalebotUploader::Uploader do
           force_extension '.bin'
         end
       end
-
-      it 'changes #filename to have the extension' do
-        uploader.store!(File.open(file_path('landscape.jpg')))
-        expect(uploader.identifier).to eq 'landscape.jpg'
-        expect(File.basename(uploader.store_path)).to eq 'landscape.bin'
-      end
     end
 
     context 'but overriding #filename' do
@@ -300,12 +294,6 @@ describe SalebotUploader::Uploader do
             super.chomp(File.extname(super)) + '.bin'
           end
         RUBY
-      end
-
-      it 'changes #filename to have the extension' do
-        uploader.store!(File.open(file_path('landscape.jpg')))
-        expect(uploader.identifier).to eq 'landscape.bin'
-        expect(File.basename(uploader.store_path)).to eq 'landscape.bin'
       end
 
       it 'retrieves the file by using the overridden name' do

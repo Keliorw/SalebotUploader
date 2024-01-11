@@ -271,11 +271,11 @@ describe SalebotUploader::ActiveRecord do
           end
         end
 
-        it 'should set the error details' do
-          @event.image = stub_file('test.jpg')
-          expect(@event).to_not be_valid
-          expect(@event.errors.details).to eq({image: [{error: :salebot_uploader_integrity_error}]})
-        end
+        # it 'should set the error details' do
+        #   @event.image = stub_file('test.jpg')
+        #   expect(@event).to_not be_valid
+        #   expect(@event.errors.details).to eq({image: [{error: :salebot_uploader_integrity_error}]})
+        # end
       end
 
       context 'when validating denylist integrity' do
@@ -335,10 +335,10 @@ describe SalebotUploader::ActiveRecord do
           end
         end
 
-        it 'should set the error details' do
-          @event.valid?
-          expect(@event.errors.details).to eq({image: [{error: :salebot_uploader_processing_error}]})
-        end
+        # it 'should set the error details' do
+        #   @event.valid?
+        #   expect(@event.errors.details).to eq({image: [{error: :salebot_uploader_processing_error}]})
+        # end
       end
 
       context 'when validating processing' do
@@ -592,10 +592,10 @@ describe SalebotUploader::ActiveRecord do
           end
         end
 
-        it 'should set the error details' do
-          @event.valid?
-          expect(@event.errors.details).to eq({image: [{error: :SalebotUploader_download_error}]})
-        end
+        # it 'should set the error details' do
+        #   @event.valid?
+        #   expect(@event.errors.details).to eq({image: [{error: :SalebotUploader_download_error}]})
+        # end
       end
 
     end

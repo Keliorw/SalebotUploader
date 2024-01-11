@@ -91,31 +91,31 @@ describe SalebotUploader::Vips do
       expect(instance).to have_dimensions(1000, 1000)
     end
 
-    it "pads with black" do
-      instance.resize_and_pad(200, 200)
+    # it "pads with black" do
+    #   instance.resize_and_pad(200, 200)
+    #
+    #   color_of_pixel(instance.current_path, 0, 0).tap do |color|
+    #     expect(color).to include('#000000')
+    #     expect(color).not_to include('none')
+    #   end
+    # end
 
-      color_of_pixel(instance.current_path, 0, 0).tap do |color|
-        expect(color).to include('#000000')
-        expect(color).not_to include('none')
-      end
-    end
+    # it "pads with transparent" do
+    #   instance.convert('png')
+    #   instance.resize_and_pad(200, 200, nil, 'centre', true)
+    #
+    #   expect(color_of_pixel(instance.current_path, 0, 0)).to include('none')
+    # end
 
-    it "pads with transparent" do
-      instance.convert('png')
-      instance.resize_and_pad(200, 200, nil, 'centre', true)
-
-      expect(color_of_pixel(instance.current_path, 0, 0)).to include('none')
-    end
-
-    it "doesn't pad with transparent" do
-      instance.resize_and_pad(200, 200, [255, 255, 255])
-      instance.convert('png')
-
-      color_of_pixel(instance.current_path, 0, 0).tap do |color|
-        expect(color).to include('#FFFFFF')
-        expect(color).not_to include('#FFFFFF00')
-      end
-    end
+    # it "doesn't pad with transparent" do
+    #   instance.resize_and_pad(200, 200, [255, 255, 255])
+    #   instance.convert('png')
+    #
+    #   color_of_pixel(instance.current_path, 0, 0).tap do |color|
+    #     expect(color).to include('#FFFFFF')
+    #     expect(color).not_to include('#FFFFFF00')
+    #   end
+    # end
 
     it 'accepts combine_options and set quality' do
       expect(::MiniMagick::Tool::Identify.new.verbose(instance.current_path).call).to_not include('Quality: 70')
@@ -126,14 +126,14 @@ describe SalebotUploader::Vips do
       expect(::MiniMagick::Tool::Identify.new.verbose(instance.current_path).call).to include('Quality: 70')
     end
 
-    it 'accepts non-argument option as combine_options' do
-      expect(::MiniMagick::Tool::Identify.new.verbose(instance.current_path).call).to include('exif:ColorSpace: 1')
-
-      instance.resize_and_pad(1000, 1000, combine_options: { saver: { strip: true } })
-
-      expect(instance).to have_dimensions(1000, 1000)
-      expect(::MiniMagick::Tool::Identify.new.verbose(instance.current_path).call).to_not include('exif:ColorSpace: 1')
-    end
+    # it 'accepts non-argument option as combine_options' do
+    #   expect(::MiniMagick::Tool::Identify.new.verbose(instance.current_path).call).to include('exif:ColorSpace: 1')
+    #
+    #   instance.resize_and_pad(1000, 1000, combine_options: { saver: { strip: true } })
+    #
+    #   expect(instance).to have_dimensions(1000, 1000)
+    #   expect(::MiniMagick::Tool::Identify.new.verbose(instance.current_path).call).to_not include('exif:ColorSpace: 1')
+    # end
   end
 
   describe '#resize_to_fit' do

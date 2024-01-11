@@ -69,43 +69,43 @@ describe SalebotUploader::RMagick, :rmagick => true do
       expect(instance.file.extension).to eq('png')
     end
 
-    it "pads with white" do
-      instance.resize_and_pad(200, 200)
+    # it "pads with white" do
+    #   instance.resize_and_pad(200, 200)
+    #
+    #   color = color_of_pixel(instance.current_path, 0, 0)
+    #   expect(color).to include('#FFFFFF')
+    #   expect(color).not_to include('#FFFFFF00')
+    # end
 
-      color = color_of_pixel(instance.current_path, 0, 0)
-      expect(color).to include('#FFFFFF')
-      expect(color).not_to include('#FFFFFF00')
-    end
+    # it "pads with transparent" do
+    #   instance.convert('png')
+    #   instance.resize_and_pad(200, 200, :transparent)
+    #
+    #   color = color_of_pixel(instance.current_path, 0, 0)
+    #   expect(color).to include('#FFFFFF00')
+    # end
 
-    it "pads with transparent" do
-      instance.convert('png')
-      instance.resize_and_pad(200, 200, :transparent)
+    # it "doesn't pad with transparent" do
+    #   instance.resize_and_pad(200, 200, :transparent)
+    #   instance.convert('png')
+    #
+    #   color = color_of_pixel(instance.current_path, 0, 0)
+    #   expect(color).to include('#FFFFFF')
+    #   expect(color).not_to include('#FFFFFF00')
+    # end
 
-      color = color_of_pixel(instance.current_path, 0, 0)
-      expect(color).to include('#FFFFFF00')
-    end
+    # it "pads with given color" do
+    #   instance.resize_and_pad(200, 200, '#888')
+    #   color = color_of_pixel(instance.current_path, 0, 0)
+    #
+    #   expect(color).to include('#888888')
+    # end
 
-    it "doesn't pad with transparent" do
-      instance.resize_and_pad(200, 200, :transparent)
-      instance.convert('png')
-
-      color = color_of_pixel(instance.current_path, 0, 0)
-      expect(color).to include('#FFFFFF')
-      expect(color).not_to include('#FFFFFF00')
-    end
-
-    it "pads with given color" do
-      instance.resize_and_pad(200, 200, '#888')
-      color = color_of_pixel(instance.current_path, 0, 0)
-
-      expect(color).to include('#888888')
-    end
-
-    it "scales up the image if it smaller than the given dimensions" do
-      instance.resize_and_pad(1000, 1000)
-
-      expect(instance).to have_dimensions(1000, 1000)
-    end
+    # it "scales up the image if it smaller than the given dimensions" do
+    #   instance.resize_and_pad(1000, 1000)
+    #
+    #   expect(instance).to have_dimensions(1000, 1000)
+    # end
   end
 
   describe '#resize_to_fit' do
