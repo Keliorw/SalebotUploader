@@ -1,4 +1,4 @@
-require File.expand_path('lib/SalebotUploader/version', __dir__)
+require File.expand_path('lib/salebot_uploader/version', __dir__)
 
 Gem::Specification.new do |spec|
   spec.name                  = 'salebot_uploader'
@@ -19,4 +19,8 @@ Gem::Specification.new do |spec|
                    'Gemfile', 'Rakefile']
   spec.extra_rdoc_files = ['README.md']
   spec.require_paths    = ['lib']
+
+  spec.add_development_dependency 'rubocop', '~> 0.60'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.5'
+  spec.add_development_dependency 'rubocop-rspec', '~> 1.37'
 end

@@ -11,6 +11,19 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, RVM: ruby-2.7.7) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.4.21, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parallel (v1.24.0, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.0.2, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="racc (v1.7.3, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.9.0, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.6, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop (v0.93.1, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.30.0, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-performance (v1.10.2, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-rspec (v1.44.1, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.13.0, RVM: ruby-2.7.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v1.8.0, RVM: ruby-2.7.7) [gem]" level="application" />
   </component>
 </module>
