@@ -38,4 +38,4 @@ module SalebotUploader
       end
     end # Abstract
   end # Storage
-end # CarrierWave
+end # SalebotUploader

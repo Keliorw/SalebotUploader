@@ -1,6 +1,6 @@
 Feature: Mount an Uploader on ActiveRecord class
   In order to easily attach files to a form
-  As a web developer using CarrierWave
+  As a web developer using SalebotUploader
   I want to mount an uploader on an ActiveRecord class
 
   Background:

@@ -1,6 +1,6 @@
 Feature: downloading files
   In order to allow users to upload remote files
-  As a developer using CarrierWave
+  As a developer using SalebotUploader
   I want to download files to the filesystem via HTTP
 
   Background:

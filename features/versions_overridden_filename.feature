@@ -1,6 +1,6 @@
 Feature: uploader with file storage and overridden filename
   In order to customize the filename of uploaded files
-  As a developer using CarrierWave
+  As a developer using SalebotUploader
   I want to upload files to the filesystem with an overridden filename and different versions
 
   Background:

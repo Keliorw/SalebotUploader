@@ -1,6 +1,6 @@
 Feature: uploader with nested versions
   In order to optimize performance for processing
-  As a developer using CarrierWave
+  As a developer using SalebotUploader
   I want to set nested versions
 
   Background:
